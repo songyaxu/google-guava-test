@@ -14,7 +14,7 @@ import java.util.List;
  **/
 public class Joiner$Test {
 
-    static final List<String> LIST = Lists.newArrayList("1","2",null,"3");
+    private static final List<String> LIST = Lists.newArrayList("1","2",null,"3");
 
     public static void main(String[] args) {
         System.out.println(joiner1());
@@ -24,23 +24,23 @@ public class Joiner$Test {
         System.out.println(joiner5());
     }
 
-    static String joiner1(){
+    private static String joiner1(){
         return Joiner.on("&").withKeyValueSeparator("=").join(ImmutableMap.of("id", "123", "name", "green"));
     }
 
-    static String joiner2(){
+    private static String joiner2(){
         return Joiner.on("#").skipNulls().join(LIST);
     }
 
-    static String joiner3(){
+    private static String joiner3(){
         return Joiner.on('#').join(12,34,56,78,90);
     }
 
-    static String joiner4(){
+    private static String joiner4(){
         return Joiner.on('#').useForNull("空").join(LIST);
     }
 
-    static String joiner5(){
+    private static String joiner5(){
         return Joiner.on("$").appendTo(new StringBuilder("sss"),"xxx","yyy","zzz").toString();
     }
 }
